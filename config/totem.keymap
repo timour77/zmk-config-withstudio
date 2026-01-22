@@ -34,24 +34,16 @@
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp ESC>;
+            bindings = <&pw>;
         };
     };
 
     macros {
-        gif: gif {
-            label = "giphy";
+        pw: pw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+            bindings = <&kp N1 &kp Q &kp N2 &kp W &kp ENTER>;
+            label = "PW";
         };
     };
 
@@ -86,10 +78,10 @@
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        nav_layer {
+        numbers {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
-            label = "NAVI";
+            label = "NUM";
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
@@ -103,16 +95,16 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp N1        &kp N2        &kp N3        &kp N4  &kp N5    &kp N6    &kp N7    &kp N8  &kp N9     &kp N0
-        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &trans  &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
-&trans  &trans        &trans        &trans        &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-                                    &trans        &trans  &trans    &mo ADJ   &trans    &trans
+            &kp N1        &kp N2        &kp N3        &kp N4  &kp N5    &kp N6    &kp N7    &kp N8  &kp N9     &kp N0
+            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &trans  &tog 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
+&caps_word  &trans        &trans        &trans        &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
+                                        &trans        &trans  &trans    &mo ADJ   &trans    &trans
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        sim_layer {
+        Symbols {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
             label = "SYM";
@@ -162,13 +154,15 @@
             >;
         };
 
-        layer_4 {
+        win_ctrl {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &kp LCTRL  &trans  &trans    &trans  &trans  &trans
             >;
+
+            label = "ctrl";
         };
     };
 };
