@@ -95,10 +95,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-            &kp N1        &kp N2        &kp N3        &kp N4  &kp N5    &kp N6    &kp N7    &kp N8  &kp N9     &kp N0
-            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &trans  &tog 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
-&caps_word  &trans        &trans        &trans        &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-                                        &trans        &trans  &trans    &trans    &trans    &trans
+            &kp N1        &kp N2        &kp N3        &kp N4  &kp N5    &kp N6     &kp N7    &kp N8  &kp N9     &kp N0
+            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &trans  &tog 4    &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT  &trans
+&caps_word  &trans        &trans        &trans        &trans  &trans    &trans     &trans    &trans  &trans     &trans  &trans
+                                        &trans        &trans  &trans    &kp ENTER  &trans    &trans
             >;
         };
 
@@ -124,7 +124,7 @@
         &kp EXCL  &kp AT  &kp HASH  &kp DLLR           &kp PRCNT       &kp CARET       &kp AMPS   &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
         &trans    &trans  &trans    &kp C_VOLUME_UP    &kp C_BRI_UP    &kp MINUS       &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &trans
 &trans  &trans    &trans  &trans    &kp C_VOLUME_DOWN  &kp C_BRI_DN    &kp UNDERSCORE  &kp PLUS   &kp LEFT_BRACE    &kp RIGHT_BRACE       &trans                 &trans
-                          &trans    &trans             &mo ADJ         &trans          &trans     &trans
+                          &trans    &trans             &mo ADJ         &kp ENTER       &trans     &trans
             >;
         };
 
@@ -147,19 +147,19 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &sys_reset   &bt BT_CLR  &out OUT_TOG  &trans  &trans    &trans  &kp F7  &kp F8  &kp F9  &kp F12
-        &bootloader  &bt BT_NXT  &trans        &trans  &trans    &trans  &kp F4  &kp F5  &kp F6  &kp F11
-&trans  &trans       &bt BT_PRV  &trans        &trans  &trans    &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                 &trans        &trans  &trans    &trans  &trans  &trans
+        &sys_reset   &bt BT_CLR  &out OUT_TOG  &trans  &trans    &trans     &kp F7  &kp F8  &kp F9  &kp F12
+        &bootloader  &bt BT_NXT  &trans        &trans  &trans    &trans     &kp F4  &kp F5  &kp F6  &kp F11
+&trans  &trans       &bt BT_PRV  &trans        &trans  &trans    &trans     &kp F1  &kp F2  &kp F3  &kp F10  &trans
+                                 &trans        &trans  &trans    &kp ENTER  &trans  &trans
             >;
         };
 
         win_ctrl {
             bindings = <
-        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans     &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &kp LCTRL  &trans  &trans    &trans  &trans  &trans
+        &trans  &trans  &trans     &trans  &trans    &trans        &trans  &trans  &trans  &trans
+        &trans  &trans  &trans     &trans  &trans    &trans        &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans  &trans    &trans        &trans  &trans  &trans  &trans  &trans
+                        &kp LCTRL  &trans  &trans    &kp KP_ENTER  &trans  &trans
             >;
 
             label = "ctrl";
