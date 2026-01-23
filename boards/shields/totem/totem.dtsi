@@ -12,8 +12,10 @@
         zmk,kscan = &kscan0;
     };
 
-    /* Создаем новую трансформацию с УНИКАЛЬНЫМ именем, чтобы не было конфликтов */
-    corrected_transform: keymap_transform_0 {
+    /* * Reverting label to 'default_transform' because shield overlays 
+     * (totem_right.overlay) depend on this specific label.
+     */
+    default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
         rows = <4>;
@@ -39,7 +41,7 @@
     };
 };
 
-/* Принудительно подменяем трансформацию в макете на нашу новую */
+/* Explicitly link the layout to our transform */
 &totem_layout {
-    transform = <&corrected_transform>;
+    transform = <&default_transform>;
 };
