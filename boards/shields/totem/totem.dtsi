@@ -6,18 +6,15 @@
 #include "totem-layouts.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 
-/* * CRITICAL FIX: Удаляем старую трансформацию из totem-layouts.dtsi, 
- * чтобы гарантировать, что используется именно НАША версия карты.
- */
-/delete-node/ &default_transform;
-
 / {
     chosen {
         zmk,physical-layout = &totem_layout;
         zmk,kscan = &kscan0;
     };
 
-    /* Заново определяем default_transform с правильной картой на 38 клавиш */
+    /* * Defining the correct matrix transform for 38 keys.
+     * We must name it 'default_transform' because shield overlays refer to it.
+     */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
@@ -44,7 +41,9 @@
     };
 };
 
-/* Принудительно связываем физический макет с нашей новой трансформацией */
+/* * CRITICAL FIX: Explicitly link the physical layout to our corrected transform.
+ * This forces ZMK Studio to use the map above (38 keys) instead of any internal default.
+ */
 &totem_layout {
     transform = <&default_transform>;
 };
