@@ -12,8 +12,8 @@
         zmk,kscan = &kscan0;
     };
 
-    /* The corrected 38-key transform matching your keymap */
-    default_transform: keymap_transform_0 {
+    /* Создаем новую трансформацию с УНИКАЛЬНЫМ именем, чтобы не было конфликтов */
+    corrected_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
         rows = <4>;
@@ -39,7 +39,7 @@
     };
 };
 
-/* Override the built-in layout to use our corrected transform */
+/* Принудительно подменяем трансформацию в макете на нашу новую */
 &totem_layout {
-    transform = <&default_transform>;
+    transform = <&corrected_transform>;
 };
