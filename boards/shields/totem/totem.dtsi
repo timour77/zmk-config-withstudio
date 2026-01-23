@@ -8,10 +8,11 @@
 
 / {
     chosen {
-        zmk,physical-layout = &direct_physical_layout;
+        zmk,physical-layout = &totem_layout;
         zmk,kscan = &kscan0;
     };
 
+    /* The corrected 38-key transform matching your keymap */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <10>;
@@ -22,20 +23,6 @@
         RC(3,0) RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4)    RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(3,9)
                                 RC(3,2) RC(3,3) RC(3,4)    RC(3,5) RC(3,6) RC(3,7)
         >;
-    };
-
-    /* Define a local layout that strictly follows our transform */
-    direct_physical_layout: direct_physical_layout {
-        compatible = "zmk,physical-layout";
-        display-name = "Totem Direct";
-        transform = <&default_transform>;
-        kscan = <&kscan0>;
-        
-        /* * We link to the keys from the included totem-layouts.dtsi 
-         * but by defining a new physical-layout node here with our 
-         * transform, we force ZMK to respect our mapping order.
-         */
-        keys = <&totem_layout_keys>; 
     };
 
     kscan0: kscan_0 {
@@ -52,7 +39,7 @@
     };
 };
 
-/* Ensure the layout node has the transform reference as a backup */
+/* Override the built-in layout to use our corrected transform */
 &totem_layout {
     transform = <&default_transform>;
 };
